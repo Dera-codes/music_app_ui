@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../models/song_model.dart';
+import '../widgets/section_header.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -25,8 +26,13 @@ class HomeScreen extends StatelessWidget {
           child: Column(
             children: [
               const _DiscoverMusic(),
-              Column(
-                children: [],
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Column(
+                  children: [
+                    SectionHeader(title: 'Trending Music'),
+                  ],
+                ),
               ),
             ],
           ),

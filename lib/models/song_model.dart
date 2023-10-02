@@ -13,12 +13,6 @@ class Song {
 
   static List<Song> songs = [
     Song(
-      title: 'Totally',
-      description: 'Totally',
-      url: 'assets/music/totally.mp3',
-      coverUrl: 'assets/images/totally.jpeg',
-    ),
-    Song(
       title: 'SpaceSong',
       description: 'SpaceSong',
       url: 'assets/music/space_song.mp3',
@@ -35,6 +29,12 @@ class Song {
       description: 'Chamber Of Reflection',
       url: 'assets/music/chamber_of_reflection.mp3',
       coverUrl: 'assets/images/chamber_of_reflection.jpeg',
+    ),
+    Song(
+      title: 'Totally',
+      description: 'Totally',
+      url: 'assets/music/totally.mp3',
+      coverUrl: 'assets/images/totally.jpeg',
     ),
   ];
 }

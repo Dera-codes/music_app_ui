@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../models/song_model.dart';
 import '../widgets/section_header.dart';
+import '../widgets/widgets.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -20,17 +21,35 @@ class HomeScreen extends StatelessWidget {
           ])),
       child: Scaffold(
         backgroundColor: Colors.transparent,
-        appBar: const _CustomAppBar(),
+        appBar: _CustomAppBar(),
         bottomNavigationBar: const _CustomNavBar(),
         body: SingleChildScrollView(
           child: Column(
             children: [
               const _DiscoverMusic(),
               Padding(
-                padding: const EdgeInsets.all(8.0),
+                padding: EdgeInsets.only(
+                  left: 20,
+                  right: 20,
+                  bottom: 20,
+                ),
                 child: Column(
                   children: [
-                    SectionHeader(title: 'Trending Music'),
+                    Padding(
+                      padding: EdgeInsets.only(right: 20),
+                      child: SectionHeader(title: 'Trending Music'),
+                    ),
+                    SizedBox(height: 20),
+                    SizedBox(
+                      height: MediaQuery.of(context).size.height * 0.27,
+                      child: ListView.builder(
+                        scrollDirection: Axis.horizontal,
+                        itemCount: songs.length,
+                        itemBuilder: (context, index) {
+                          return SongCard(song: songs[index]);
+                        },
+                      ),
+                    ),
                   ],
                 ),
               ),
@@ -145,7 +164,7 @@ class _CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
           margin: const EdgeInsets.only(right: 20),
           child: const CircleAvatar(
             backgroundImage: NetworkImage(
-                'https://media.licdn.com/dms/image/C4D03AQFWzLxhhD1FNg/profile-displayphoto-shrink_800_800/0/1659658898673?e=1701302400&v=beta&t=38zVLbzj0k9DrI9W5byRzI_dp__o24sw_Bsp4917paM'),
+                'https://instagram.flos1-1.fna.fbcdn.net/v/t51.2885-19/286920825_1166260887528838_4214319394795020627_n.jpg?stp=dst-jpg_s320x320&_nc_ht=instagram.flos1-1.fna.fbcdn.net&_nc_cat=110&_nc_ohc=scDBYVYhaoQAX8eBONM&edm=AOQ1c0wBAAAA&ccb=7-5&oh=00_AfAS9pwoIg8FaROMcda8s1s1-VGKC5EXTyeTpk_RCCrt9Q&oe=6519E056&_nc_sid=8b3546'),
           ),
         )
       ],

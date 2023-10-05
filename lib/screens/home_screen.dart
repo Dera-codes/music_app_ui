@@ -39,23 +39,8 @@ class HomeScreen extends StatelessWidget {
                         shrinkWrap: true,
                         itemCount: playlists.length,
                         itemBuilder: (context, index) {
-                          return Container(
-                            child: Row(
-                              children: [
-                                ClipRRect(
-                                  borderRadius: BorderRadius.circular(15.0),
-                                  child: Image.network(
-                                    playlists[index].imageUrl,
-                                    height: 50,
-                                    width: 50,
-                                    fit: BoxFit.cover,
-                                  ),
-                                ),
-                                Column(
-                                  children: [],
-                                ),
-                              ],
-                            ),
+                          return PlaylistCard(
+                            playlist: playlists[index],
                           );
                         }),
                   ],
